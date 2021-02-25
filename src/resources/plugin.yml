@@ -1,0 +1,11 @@
+name: ProtectionWands
+main: dev._2lstudios.protectionwands.ProtectionWands
+version: 0.0.1
+author: LinsaFTW
+depend: [WorldSentinel, Vault, ProtocolLib]
+commands:
+  protectionwands:
+    aliases:
+      - pw
+      - claim
+    description: ProtectionWands main command
