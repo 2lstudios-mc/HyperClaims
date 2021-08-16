@@ -4,12 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dev._2lstudios</groupId>
-    <artifactId>protectionwands</artifactId>
+    <artifactId>HyperClaims</artifactId>
     <version>0.0.1</version>
 
-    <name>protectionwands</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
+    <name>HyperClaims</name>
+    <url>https://github.com/2lstudios-mc/HyperClaims</url>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
