@@ -1,17 +1,18 @@
-package dev._2lstudios.protectionwands.pplayer;
+package dev._2lstudios.hyperclaims.player;
 
-import java.util.Iterator;
-import org.json.simple.JSONObject;
-import dev._2lstudios.protectionwands.utils.JSONUtil;
-import java.util.HashSet;
-import java.util.HashMap;
-import org.bukkit.entity.Player;
-import java.util.UUID;
 import java.util.Collection;
-import org.bukkit.Location;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.UUID;
 
-public class PPlayer {
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+import org.json.simple.JSONObject;
+
+import dev._2lstudios.hyperclaims.utils.JSONUtil;
+
+public class ProtectionPlayer {
     private final Map<String, Location> pillarMap;
     private final Collection<String> regions;
     private final UUID uuid;
@@ -20,7 +21,7 @@ public class PPlayer {
     private Location position2;
     private boolean map;
 
-    public PPlayer(final Player player) {
+    public ProtectionPlayer(final Player player) {
         this.pillarMap = new HashMap<String, Location>();
         this.regions = new HashSet<String>();
         this.uuid = player.getUniqueId();
@@ -33,8 +34,8 @@ public class PPlayer {
     public void loadData() {
         final String path = "%datafolder%/" + this.uuid.toString() + ".json";
         final JSONObject playerData = JSONUtil.getJSON(path);
-        if (playerData.containsKey((Object) "regions")) {
-            final Object regionsSection = playerData.get((Object) "regions");
+        if (playerData.containsKey("regions")) {
+            final Object regionsSection = playerData.get("regions");
             if (regionsSection instanceof Iterable) {
                 for (final Object regionsObject : (Iterable) regionsSection) {
                     if (regionsObject instanceof String) {
@@ -52,7 +53,7 @@ public class PPlayer {
             JSONUtil.deleteJSON(path);
         } else {
             final JSONObject playerData = new JSONObject();
-            playerData.put((Object) "regions", (Object) this.regions);
+            playerData.put("regions", this.regions);
             JSONUtil.saveJSON(path, playerData);
         }
     }

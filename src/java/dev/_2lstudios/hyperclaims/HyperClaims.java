@@ -1,4 +1,4 @@
-package dev._2lstudios.protectionwands;
+package dev._2lstudios.hyperclaims;
 
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -6,33 +6,45 @@ import dev._2lstudios.worldsentinel.region.RegionManager;
 import org.bukkit.plugin.PluginManager;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Server;
-import dev._2lstudios.protectionwands.tasks.ProtectionWandsRunnable;
 import org.bukkit.command.CommandExecutor;
-import dev._2lstudios.protectionwands.commands.ProtectionWandsCommand;
-import dev._2lstudios.protectionwands.listeners.PlayerQuitListener;
-import dev._2lstudios.protectionwands.listeners.RegionEnterListener;
 import org.bukkit.event.Listener;
-import dev._2lstudios.protectionwands.listeners.PlayerInteractListener;
+
 import java.util.List;
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.Material;
 import java.util.ArrayList;
 import org.bukkit.plugin.Plugin;
-import dev._2lstudios.protectionwands.pplayer.PPlayerManager;
+
+import dev._2lstudios.hyperclaims.commands.ProtectionWandsCommand;
+import dev._2lstudios.hyperclaims.listeners.PlayerInteractListener;
+import dev._2lstudios.hyperclaims.listeners.PlayerQuitListener;
+import dev._2lstudios.hyperclaims.listeners.RegionEnterListener;
+import dev._2lstudios.hyperclaims.player.ProtectionPlayerManager;
+import dev._2lstudios.hyperclaims.runnable.ProtectionWandsRunnable;
+import dev._2lstudios.hyperclaims.utils.JSONUtil;
 import dev._2lstudios.worldsentinel.WorldSentinel;
-import dev._2lstudios.protectionwands.utils.JSONUtil;
+
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class ProtectionWands extends JavaPlugin {
+public class HyperClaims extends JavaPlugin {
+    private Economy getEconomy() {
+        final RegisteredServiceProvider<Economy> economyProvider = this.getServer()
+                .getServicesManager().getRegistration(Economy.class);
+        if (economyProvider != null) {
+            return (Economy) economyProvider.getProvider();
+        }
+        return null;
+    }
+
     public void onEnable() {
         JSONUtil.initialize(this.getDataFolder().toString());
         final Server server = this.getServer();
-        final Economy economy = this.registerEconomy();
+        final Economy economy = this.getEconomy();
         final PluginManager pluginManager = server.getPluginManager();
         final WorldSentinel worldSentinel = WorldSentinel.getInstance();
         final RegionManager regionManager = worldSentinel.getRegionManager();
-        final PPlayerManager pPlayerManager = new PPlayerManager((Plugin) this);
+        final ProtectionPlayerManager pPlayerManager = new ProtectionPlayerManager((Plugin) this);
         final List<String> itemLore = new ArrayList<String>();
 
         // Añadido compatibilidad con el nuevo rename de los materiales - by Sammwy
@@ -62,14 +74,5 @@ public class ProtectionWands extends JavaPlugin {
 
     public void onDisable() {
         this.getServer().getScheduler().cancelTasks((Plugin) this);
-    }
-
-    public Economy registerEconomy() {
-        final RegisteredServiceProvider<Economy> economyProvider = (RegisteredServiceProvider<Economy>) this.getServer()
-                .getServicesManager().getRegistration((Class) Economy.class);
-        if (economyProvider != null) {
-            return (Economy) economyProvider.getProvider();
-        }
-        return null;
     }
 }

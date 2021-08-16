@@ -1,18 +1,18 @@
-package dev._2lstudios.protectionwands.commands;
+package dev._2lstudios.hyperclaims.commands;
 
-import dev._2lstudios.worldsentinel.region.Region;
-import java.util.Iterator;
-import dev._2lstudios.protectionwands.pplayer.PPlayer;
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
-import dev._2lstudios.protectionwands.pplayer.PPlayerManager;
-import dev._2lstudios.worldsentinel.region.RegionManager;
 import org.bukkit.Server;
+import org.bukkit.entity.Player;
+
+import dev._2lstudios.hyperclaims.player.ProtectionPlayer;
+import dev._2lstudios.hyperclaims.player.ProtectionPlayerManager;
+import dev._2lstudios.worldsentinel.region.Region;
+import dev._2lstudios.worldsentinel.region.RegionManager;
 
 public class ProtectionWandsRegionsCommand {
     public ProtectionWandsRegionsCommand(final Server server, final RegionManager regionManager,
-            final PPlayerManager pPlayerManager, final String[] args, final Player player) {
-        PPlayer pPlayer;
+            final ProtectionPlayerManager pPlayerManager, final String[] args, final Player player) {
+        ProtectionPlayer pPlayer;
         if (args.length > 1) {
             final Player player2 = server.getPlayer(args[1]);
             if (player2 == null) {

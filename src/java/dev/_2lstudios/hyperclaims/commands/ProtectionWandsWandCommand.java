@@ -1,4 +1,4 @@
-package dev._2lstudios.protectionwands.commands;
+package dev._2lstudios.hyperclaims.commands;
 
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.ChatColor;

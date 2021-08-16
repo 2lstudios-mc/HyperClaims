@@ -1,4 +1,4 @@
-package dev._2lstudios.protectionwands.commands;
+package dev._2lstudios.hyperclaims.commands;
 
 import dev._2lstudios.worldsentinel.region.RegionFlags;
 import dev._2lstudios.worldsentinel.region.Region;

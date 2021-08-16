@@ -1,4 +1,4 @@
-package dev._2lstudios.protectionwands.utils;
+package dev._2lstudios.hyperclaims.utils;
 
 import org.bukkit.World;
 import java.util.Iterator;
@@ -7,12 +7,14 @@ import dev._2lstudios.worldsentinel.region.RegionFlags;
 import org.bukkit.Location;
 import net.milkbowl.vault.economy.EconomyResponse;
 import org.bukkit.OfflinePlayer;
+
+import dev._2lstudios.hyperclaims.player.ProtectionPlayer;
 import dev._2lstudios.worldsentinel.region.Region;
 import java.util.Collection;
 import java.util.Collections;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import dev._2lstudios.protectionwands.pplayer.PPlayer;
+
 import dev._2lstudios.worldsentinel.region.RegionManager;
 import net.milkbowl.vault.economy.Economy;
 
@@ -21,7 +23,7 @@ public class ProtectionUtil {
         throw new IllegalStateException("Utility class");
     }
 
-    public static void claim(final Economy economy, final RegionManager regionManager, final PPlayer pPlayer,
+    public static void claim(final Economy economy, final RegionManager regionManager, final ProtectionPlayer pPlayer,
             final Player player) {
         final Location position1 = pPlayer.getPosition1();
         final Location position2 = pPlayer.getPosition2();
@@ -87,7 +89,7 @@ public class ProtectionUtil {
         }
     }
 
-    public static void clearFarPillars(final PPlayer pPlayer, final Location playerLocation, final int distance) {
+    public static void clearFarPillars(final ProtectionPlayer pPlayer, final Location playerLocation, final int distance) {
         final Collection<Location> pillarMap = pPlayer.getPillarLocations();
         final World playerWorld = playerLocation.getWorld();
         final Iterator<Location> locationIterator = pillarMap.iterator();

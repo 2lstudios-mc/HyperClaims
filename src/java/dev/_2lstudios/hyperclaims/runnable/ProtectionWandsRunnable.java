@@ -1,4 +1,4 @@
-package dev._2lstudios.protectionwands.tasks;
+package dev._2lstudios.hyperclaims.runnable;
 
 import java.lang.reflect.InvocationTargetException;
 import com.comphenix.protocol.events.PacketContainer;
@@ -7,13 +7,16 @@ import com.comphenix.protocol.PacketType;
 import org.bukkit.block.Block;
 import org.bukkit.util.Vector;
 import dev._2lstudios.worldsentinel.region.RegionFlags;
+import dev._2lstudios.hyperclaims.player.ProtectionPlayer;
+import dev._2lstudios.hyperclaims.player.ProtectionPlayerManager;
+import dev._2lstudios.hyperclaims.utils.ProtectionUtil;
 import dev._2lstudios.worldsentinel.region.Region;
 import org.bukkit.World;
-import dev._2lstudios.protectionwands.pplayer.PPlayer;
+
 import java.util.Iterator;
 import org.bukkit.Location;
 import java.util.HashSet;
-import dev._2lstudios.protectionwands.utils.ProtectionUtil;
+
 import com.comphenix.protocol.wrappers.MultiBlockChangeInfo;
 import java.util.Collection;
 import org.bukkit.Chunk;
@@ -22,7 +25,7 @@ import com.comphenix.protocol.ProtocolLibrary;
 import org.bukkit.Material;
 import java.util.HashMap;
 import dev._2lstudios.worldsentinel.region.RegionManager;
-import dev._2lstudios.protectionwands.pplayer.PPlayerManager;
+
 import org.bukkit.Server;
 import com.comphenix.protocol.ProtocolManager;
 import com.comphenix.protocol.wrappers.WrappedBlockData;
@@ -33,12 +36,12 @@ public class ProtectionWandsRunnable implements Runnable {
     private final WrappedBlockData secondMaterial;
     private final ProtocolManager protocolManager;
     private final Server server;
-    private final PPlayerManager pPlayerManager;
+    private final ProtectionPlayerManager pPlayerManager;
     private final RegionManager regionManager;
     private final int alternate;
     private final int distance;
 
-    public ProtectionWandsRunnable(final Server server, final PPlayerManager pPlayerManager,
+    public ProtectionWandsRunnable(final Server server, final ProtectionPlayerManager pPlayerManager,
             final RegionManager regionManager) {
         this.firstMaterials = new HashMap<Integer, WrappedBlockData>();
         this.secondMaterial = WrappedBlockData.createData(Material.getMaterial("AIR"), 0);
@@ -57,7 +60,7 @@ public class ProtectionWandsRunnable implements Runnable {
     public void run() {
         try {
             for (final Player player : this.server.getOnlinePlayers()) {
-                final PPlayer pPlayer = this.pPlayerManager.getPlayer(player);
+                final ProtectionPlayer pPlayer = this.pPlayerManager.getPlayer(player);
                 if (pPlayer == null) {
                     return;
                 }

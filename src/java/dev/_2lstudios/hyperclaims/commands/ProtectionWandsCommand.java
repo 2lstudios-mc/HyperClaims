@@ -1,24 +1,25 @@
-package dev._2lstudios.protectionwands.commands;
+package dev._2lstudios.hyperclaims.commands;
 
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.ChatColor;
+
+import dev._2lstudios.hyperclaims.player.ProtectionPlayerManager;
 import dev._2lstudios.worldsentinel.region.RegionManager;
 import org.bukkit.inventory.ItemStack;
-import dev._2lstudios.protectionwands.pplayer.PPlayerManager;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.command.CommandExecutor;
 
 public class ProtectionWandsCommand implements CommandExecutor {
     private final Plugin plugin;
-    private final PPlayerManager pPlayerManager;
+    private final ProtectionPlayerManager pPlayerManager;
     private final ItemStack wandItemStack;
     private final RegionManager regionManager;
     private final String helpMessage;
 
-    public ProtectionWandsCommand(final Plugin plugin, final PPlayerManager pPlayerManager,
+    public ProtectionWandsCommand(final Plugin plugin, final ProtectionPlayerManager pPlayerManager,
             final ItemStack wandItemStack, final RegionManager regionManager) {
         final String lineSeparator = System.lineSeparator();
         this.plugin = plugin;

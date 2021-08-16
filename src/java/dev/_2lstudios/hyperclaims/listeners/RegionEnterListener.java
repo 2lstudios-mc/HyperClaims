@@ -1,11 +1,13 @@
-package dev._2lstudios.protectionwands.listeners;
+package dev._2lstudios.hyperclaims.listeners;
 
 import org.bukkit.event.EventHandler;
+
+import dev._2lstudios.hyperclaims.utils.StringCollectionUtil;
 import dev._2lstudios.worldsentinel.events.RegionEnterEvent;
 import dev._2lstudios.worldsentinel.region.RegionFlags;
 import org.bukkit.ChatColor;
 import java.util.Collection;
-import dev._2lstudios.protectionwands.utils.StringCollectionUtil;
+
 import dev._2lstudios.worldsentinel.region.Region;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;

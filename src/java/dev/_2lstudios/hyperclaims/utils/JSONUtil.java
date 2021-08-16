@@ -1,4 +1,4 @@
-package dev._2lstudios.protectionwands.utils;
+package dev._2lstudios.hyperclaims.utils;
 
 import java.io.Reader;
 import java.io.FileReader;

@@ -1,13 +1,14 @@
-package dev._2lstudios.protectionwands.commands;
+package dev._2lstudios.hyperclaims.commands;
 
-import dev._2lstudios.protectionwands.pplayer.PPlayer;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import dev._2lstudios.protectionwands.pplayer.PPlayerManager;
+
+import dev._2lstudios.hyperclaims.player.ProtectionPlayer;
+import dev._2lstudios.hyperclaims.player.ProtectionPlayerManager;
 
 public class ProtectionWandsMapCommand {
-    public ProtectionWandsMapCommand(final PPlayerManager pPlayerManager, final Player player) {
-        final PPlayer pPlayer = pPlayerManager.getPlayer(player);
+    public ProtectionWandsMapCommand(final ProtectionPlayerManager pPlayerManager, final Player player) {
+        final ProtectionPlayer pPlayer = pPlayerManager.getPlayer(player);
         pPlayer.setMapEnabled(!pPlayer.isMapEnabled());
         if (pPlayer.isMapEnabled()) {
             player.sendMessage(ChatColor.GREEN + "Habilitaste el visualizador de regiones!");
