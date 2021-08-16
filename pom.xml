@@ -55,6 +55,10 @@
             <id>dmulloy2-repo</id>
             <url>https://repo.dmulloy2.net/repository/public/</url>
         </repository>
+        <repository>
+            <id>2lstudios-repo</id>
+            <url>https://repo.2lstudios.dev/</url>
+        </repository>
     </repositories>
     <dependencies>
         <dependency>
@@ -63,25 +67,21 @@
             <version>4.6.0</version>
         </dependency>
         <dependency>
-            <groupId>dev._2lstudios</groupId>
-            <artifactId>worldsentinel</artifactId>
-            <version>SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>C:\Users\Valen\Desktop\WorldSentinel.jar</systemPath>
+            <groupId>com.github.MilkBowl</groupId>
+            <artifactId>VaultAPI</artifactId>
+            <version>1.7</version>
+            <scope>provided</scope>
         </dependency>
-            <dependency>
-                <groupId>com.github.MilkBowl</groupId>
-                <artifactId>VaultAPI</artifactId>
-                <version>1.7</version>
-                <scope>provided</scope>
-            </dependency>
-
         <dependency>
-            <groupId>org</groupId>
-            <artifactId>Spigot</artifactId>
-            <version>SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>C:\Mis cosas\Minecraft\Server\Spigot-1.8.8.jar</systemPath>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.16.5-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>dev._2lstudios</groupId>
+            <artifactId>WorldSentinel</artifactId>
+            <version>0.0.1</version>
         </dependency>
     </dependencies>
 </project>
