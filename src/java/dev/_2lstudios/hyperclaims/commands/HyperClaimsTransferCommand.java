@@ -1,14 +1,15 @@
 package dev._2lstudios.hyperclaims.commands;
 
-import dev._2lstudios.worldsentinel.region.RegionFlags;
-import dev._2lstudios.worldsentinel.region.Region;
-import org.bukkit.Location;
-import org.bukkit.ChatColor;
-import java.util.Collection;
 import java.util.Collections;
-import org.bukkit.entity.Player;
-import dev._2lstudios.worldsentinel.region.RegionManager;
+
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Server;
+import org.bukkit.entity.Player;
+
+import dev._2lstudios.worldsentinel.region.Region;
+import dev._2lstudios.worldsentinel.region.RegionFlags;
+import dev._2lstudios.worldsentinel.region.RegionManager;
 
 public class HyperClaimsTransferCommand {
     public HyperClaimsTransferCommand(final Server server, final RegionManager regionManager, final String[] args,
@@ -22,7 +23,7 @@ public class HyperClaimsTransferCommand {
                     if (flags.getCollection("owners").contains(player.getName())) {
                         final Player player2 = server.getPlayer(args[1]);
                         if (player2 != null && player2.isOnline()) {
-                            flags.setCollection("owners", (Collection) Collections.singleton(args[1]));
+                            flags.setCollection("owners", Collections.singleton(args[1]));
                             player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                                     "&aTransferiste el claim a &b" + args[1] + "&a!"));
                         } else {

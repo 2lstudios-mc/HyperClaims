@@ -40,7 +40,7 @@ public class ProtectionUtil {
                     final Location[] positions = getCuboidPoints(position1, position2);
                     final Region region = regionManager.createRandomRegion("PW");
                     final RegionFlags flags = region.getFlags();
-                    flags.setCollection("extra_flags", (Collection) Collections.singletonList("ProtectionWands"));
+                    flags.setCollection("extra_flags", Collections.singletonList("ProtectionWands"));
                     final Vector position1Vector = positions[0].toVector();
                     final Vector position2Vector = positions[1].toVector();
                     final String worldName = position1.getWorld().getName();
@@ -119,7 +119,7 @@ public class ProtectionUtil {
         flags.setBoolean("interacting", false);
         flags.setBoolean("placing", false);
         flags.setBoolean("breaking", false);
-        flags.setCollection("owners", (Collection) Collections.singletonList(ownerName));
+        flags.setCollection("owners", Collections.singletonList(ownerName));
     }
 
     public static Location[] getCuboidPoints(final Location position1, final Location position2) {

@@ -1,35 +1,34 @@
 package dev._2lstudios.hyperclaims.runnable;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+
+import com.comphenix.protocol.PacketType;
+import com.comphenix.protocol.ProtocolLibrary;
+import com.comphenix.protocol.ProtocolManager;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.ChunkCoordIntPair;
-import com.comphenix.protocol.PacketType;
+import com.comphenix.protocol.wrappers.MultiBlockChangeInfo;
+import com.comphenix.protocol.wrappers.WrappedBlockData;
+
+import org.bukkit.Chunk;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.Server;
+import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
-import dev._2lstudios.worldsentinel.region.RegionFlags;
+
 import dev._2lstudios.hyperclaims.player.ProtectionPlayer;
 import dev._2lstudios.hyperclaims.player.ProtectionPlayerManager;
 import dev._2lstudios.hyperclaims.utils.ProtectionUtil;
 import dev._2lstudios.worldsentinel.region.Region;
-import org.bukkit.World;
-
-import java.util.Iterator;
-import org.bukkit.Location;
-import java.util.HashSet;
-
-import com.comphenix.protocol.wrappers.MultiBlockChangeInfo;
-import java.util.Collection;
-import org.bukkit.Chunk;
-import org.bukkit.entity.Player;
-import com.comphenix.protocol.ProtocolLibrary;
-import org.bukkit.Material;
-import java.util.HashMap;
+import dev._2lstudios.worldsentinel.region.RegionFlags;
 import dev._2lstudios.worldsentinel.region.RegionManager;
-
-import org.bukkit.Server;
-import com.comphenix.protocol.ProtocolManager;
-import com.comphenix.protocol.wrappers.WrappedBlockData;
-import java.util.Map;
 
 public class HyperClaimsRunnable implements Runnable {
     private final Map<Integer, WrappedBlockData> firstMaterials;

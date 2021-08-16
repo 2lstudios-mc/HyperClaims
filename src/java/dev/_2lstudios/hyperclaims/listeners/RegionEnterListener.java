@@ -1,16 +1,14 @@
 package dev._2lstudios.hyperclaims.listeners;
 
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 
 import dev._2lstudios.hyperclaims.utils.StringCollectionUtil;
 import dev._2lstudios.worldsentinel.events.RegionEnterEvent;
-import dev._2lstudios.worldsentinel.region.RegionFlags;
-import org.bukkit.ChatColor;
-import java.util.Collection;
-
 import dev._2lstudios.worldsentinel.region.Region;
-import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
+import dev._2lstudios.worldsentinel.region.RegionFlags;
 
 public class RegionEnterListener implements Listener {
     private void sendEnterLeaveMessage(final Player player, final Region region, final String action,

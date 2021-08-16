@@ -20,7 +20,7 @@ public class HyperClaimsRemoveCommand {
                         && flags.getCollection("owners").contains(player.getName())) {
                     final Collection<String> members = (Collection<String>) flags.getCollection("members");
                     members.remove(args[1]);
-                    flags.setCollection("members", (Collection) members);
+                    flags.setCollection("members", members);
                     player.sendMessage(ChatColor.GREEN + "Removiste al jugador del claim!");
                 } else {
                     player.sendMessage(ChatColor.RED + "No eres owner de ese claim!");
