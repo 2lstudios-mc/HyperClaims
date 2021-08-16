@@ -7,8 +7,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import dev._2lstudios.worldsentinel.region.RegionManager;
 
-public class ProtectionWandsUnclaimCommand {
-    public ProtectionWandsUnclaimCommand(final RegionManager regionManager, final Player player) {
+public class HyperClaimsUnclaimCommand {
+    public HyperClaimsUnclaimCommand(final RegionManager regionManager, final Player player) {
         final Location location = player.getLocation();
         final Region region = regionManager.getRegionInside(location);
         if (region != null) {

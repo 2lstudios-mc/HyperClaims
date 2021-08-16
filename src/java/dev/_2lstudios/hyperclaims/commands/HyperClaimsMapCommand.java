@@ -6,8 +6,8 @@ import org.bukkit.entity.Player;
 import dev._2lstudios.hyperclaims.player.ProtectionPlayer;
 import dev._2lstudios.hyperclaims.player.ProtectionPlayerManager;
 
-public class ProtectionWandsMapCommand {
-    public ProtectionWandsMapCommand(final ProtectionPlayerManager pPlayerManager, final Player player) {
+public class HyperClaimsMapCommand {
+    public HyperClaimsMapCommand(final ProtectionPlayerManager pPlayerManager, final Player player) {
         final ProtectionPlayer pPlayer = pPlayerManager.getPlayer(player);
         pPlayer.setMapEnabled(!pPlayer.isMapEnabled());
         if (pPlayer.isMapEnabled()) {

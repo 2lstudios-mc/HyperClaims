@@ -31,7 +31,7 @@ import com.comphenix.protocol.ProtocolManager;
 import com.comphenix.protocol.wrappers.WrappedBlockData;
 import java.util.Map;
 
-public class ProtectionWandsRunnable implements Runnable {
+public class HyperClaimsRunnable implements Runnable {
     private final Map<Integer, WrappedBlockData> firstMaterials;
     private final WrappedBlockData secondMaterial;
     private final ProtocolManager protocolManager;
@@ -41,7 +41,7 @@ public class ProtectionWandsRunnable implements Runnable {
     private final int alternate;
     private final int distance;
 
-    public ProtectionWandsRunnable(final Server server, final ProtectionPlayerManager pPlayerManager,
+    public HyperClaimsRunnable(final Server server, final ProtectionPlayerManager pPlayerManager,
             final RegionManager regionManager) {
         this.firstMaterials = new HashMap<Integer, WrappedBlockData>();
         this.secondMaterial = WrappedBlockData.createData(Material.getMaterial("AIR"), 0);

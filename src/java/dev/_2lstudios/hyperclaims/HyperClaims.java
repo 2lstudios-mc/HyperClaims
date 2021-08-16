@@ -16,12 +16,12 @@ import org.bukkit.Material;
 import java.util.ArrayList;
 import org.bukkit.plugin.Plugin;
 
-import dev._2lstudios.hyperclaims.commands.ProtectionWandsCommand;
+import dev._2lstudios.hyperclaims.commands.HyperClaimsCommand;
 import dev._2lstudios.hyperclaims.listeners.PlayerInteractListener;
 import dev._2lstudios.hyperclaims.listeners.PlayerQuitListener;
 import dev._2lstudios.hyperclaims.listeners.RegionEnterListener;
 import dev._2lstudios.hyperclaims.player.ProtectionPlayerManager;
-import dev._2lstudios.hyperclaims.runnable.ProtectionWandsRunnable;
+import dev._2lstudios.hyperclaims.runnable.HyperClaimsRunnable;
 import dev._2lstudios.hyperclaims.utils.JSONUtil;
 import dev._2lstudios.worldsentinel.WorldSentinel;
 
@@ -66,10 +66,10 @@ public class HyperClaims extends JavaPlugin {
                 (Plugin) this);
         pluginManager.registerEvents((Listener) new RegionEnterListener(), (Plugin) this);
         pluginManager.registerEvents((Listener) new PlayerQuitListener(pPlayerManager), (Plugin) this);
-        this.getCommand("ProtectionWands").setExecutor((CommandExecutor) new ProtectionWandsCommand((Plugin) this,
+        this.getCommand("hyperclaims").setExecutor((CommandExecutor) new HyperClaimsCommand((Plugin) this,
                 pPlayerManager, wandItemStack, regionManager));
         server.getScheduler().runTaskTimer((Plugin) this,
-                (Runnable) new ProtectionWandsRunnable(server, pPlayerManager, regionManager), 40L, 40L);
+                (Runnable) new HyperClaimsRunnable(server, pPlayerManager, regionManager), 40L, 40L);
     }
 
     public void onDisable() {

@@ -5,13 +5,12 @@ import dev._2lstudios.worldsentinel.region.Region;
 import org.bukkit.Location;
 import org.bukkit.ChatColor;
 import java.util.Collection;
-import java.util.Collections;
 import org.bukkit.entity.Player;
 import dev._2lstudios.worldsentinel.region.RegionManager;
 import org.bukkit.Server;
 
-public class ProtectionWandsTransferCommand {
-    public ProtectionWandsTransferCommand(final Server server, final RegionManager regionManager, final String[] args,
+public class HyperClaimsAddCommand {
+    public HyperClaimsAddCommand(final Server server, final RegionManager regionManager, final String[] args,
             final String label, final Player player) {
         if (args.length > 1) {
             final Location location = player.getLocation();
@@ -22,9 +21,11 @@ public class ProtectionWandsTransferCommand {
                     if (flags.getCollection("owners").contains(player.getName())) {
                         final Player player2 = server.getPlayer(args[1]);
                         if (player2 != null && player2.isOnline()) {
-                            flags.setCollection("owners", (Collection) Collections.singleton(args[1]));
+                            final Collection<String> members = (Collection<String>) flags.getCollection("members");
+                            members.add(args[1]);
+                            flags.setCollection("members", (Collection) members);
                             player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                                    "&aTransferiste el claim a &b" + args[1] + "&a!"));
+                                    "&aAgregaste a &b" + args[1] + "&a como miembro del claim!"));
                         } else {
                             player.sendMessage(ChatColor.RED + "El jugador especificado no esta en linea!");
                         }
@@ -38,7 +39,7 @@ public class ProtectionWandsTransferCommand {
                 player.sendMessage(ChatColor.RED + "No estas dentro de ningun claim!");
             }
         } else {
-            player.sendMessage(ChatColor.RED + "/" + label + " transfer <jugador>!");
+            player.sendMessage(ChatColor.RED + "/" + label + " add <jugador>!");
         }
     }
 }

@@ -1,11 +1,10 @@
-name: ProtectionWands
-main: dev._2lstudios.protectionwands.ProtectionWands
+name: HyperClaims
+main: dev._2lstudios.hyperclaims.HyperClaims
 version: 0.0.1
-author: LinsaFTW
+author: 2LStudios
 depend: [WorldSentinel, Vault, ProtocolLib]
 commands:
-  protectionwands:
+  hyperclaims:
     aliases:
-      - pw
       - claim
-    description: ProtectionWands main command
+    description: HyperClaims main command

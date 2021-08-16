@@ -6,8 +6,8 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class ProtectionWandsWandCommand {
-    public ProtectionWandsWandCommand(final ItemStack wandItemStack, final Player player) {
+public class HyperClaimsWandCommand {
+    public HyperClaimsWandCommand(final ItemStack wandItemStack, final Player player) {
         final PlayerInventory inventory = player.getInventory();
         final ItemStack itemStack = player.getItemInHand();
         if (itemStack == null || itemStack.getType() == Material.AIR) {

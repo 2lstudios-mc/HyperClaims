@@ -9,8 +9,8 @@ import dev._2lstudios.hyperclaims.player.ProtectionPlayerManager;
 import dev._2lstudios.worldsentinel.region.Region;
 import dev._2lstudios.worldsentinel.region.RegionManager;
 
-public class ProtectionWandsRegionsCommand {
-    public ProtectionWandsRegionsCommand(final Server server, final RegionManager regionManager,
+public class HyperClaimsRegionsCommand {
+    public HyperClaimsRegionsCommand(final Server server, final RegionManager regionManager,
             final ProtectionPlayerManager pPlayerManager, final String[] args, final Player player) {
         ProtectionPlayer pPlayer;
         if (args.length > 1) {

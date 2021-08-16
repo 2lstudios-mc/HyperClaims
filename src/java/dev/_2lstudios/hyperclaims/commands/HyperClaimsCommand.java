@@ -12,14 +12,14 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.command.CommandExecutor;
 
-public class ProtectionWandsCommand implements CommandExecutor {
+public class HyperClaimsCommand implements CommandExecutor {
     private final Plugin plugin;
     private final ProtectionPlayerManager pPlayerManager;
     private final ItemStack wandItemStack;
     private final RegionManager regionManager;
     private final String helpMessage;
 
-    public ProtectionWandsCommand(final Plugin plugin, final ProtectionPlayerManager pPlayerManager,
+    public HyperClaimsCommand(final Plugin plugin, final ProtectionPlayerManager pPlayerManager,
             final ItemStack wandItemStack, final RegionManager regionManager) {
         final String lineSeparator = System.lineSeparator();
         this.plugin = plugin;
@@ -27,7 +27,7 @@ public class ProtectionWandsCommand implements CommandExecutor {
         this.wandItemStack = wandItemStack;
         this.regionManager = regionManager;
         this.helpMessage = ChatColor.translateAlternateColorCodes('&',
-                "&aComandos de ProtectionWands:" + lineSeparator
+                "&aComandos de HyperClaims:" + lineSeparator
                         + "&e/%label% info [region] &7- &bMuestra informacion de la region ingresada!" + lineSeparator
                         + "&e/%label% map &7- &bMuestra bordes de las protecciones!" + lineSeparator
                         + "&e/%label% wand &7- &bObten una azada de claim!" + lineSeparator
@@ -46,21 +46,21 @@ public class ProtectionWandsCommand implements CommandExecutor {
                 if (args.length > 0) {
                     final Server server = this.plugin.getServer();
                     if (args[0].equals("map")) {
-                        new ProtectionWandsMapCommand(this.pPlayerManager, player);
+                        new HyperClaimsMapCommand(this.pPlayerManager, player);
                     } else if (args[0].equals("wand")) {
-                        new ProtectionWandsWandCommand(this.wandItemStack, player);
+                        new HyperClaimsWandCommand(this.wandItemStack, player);
                     } else if (args[0].equals("transfer")) {
-                        new ProtectionWandsTransferCommand(server, this.regionManager, args, label, player);
+                        new HyperClaimsTransferCommand(server, this.regionManager, args, label, player);
                     } else if (args[0].equals("add")) {
-                        new ProtectionWandsAddCommand(server, this.regionManager, args, label, player);
+                        new HyperClaimsAddCommand(server, this.regionManager, args, label, player);
                     } else if (args[0].equals("remove")) {
-                        new ProtectionWandsRemoveCommand(this.regionManager, args, label, player);
+                        new HyperClaimsRemoveCommand(this.regionManager, args, label, player);
                     } else if (args[0].equals("unclaim")) {
-                        new ProtectionWandsUnclaimCommand(this.regionManager, player);
+                        new HyperClaimsUnclaimCommand(this.regionManager, player);
                     } else if (args[0].equals("info")) {
-                        new ProtectionWandsInfoCommand(args, this.regionManager, player);
+                        new HyperClaimsInfoCommand(args, this.regionManager, player);
                     } else if (args[0].equals("regions")) {
-                        new ProtectionWandsRegionsCommand(server, this.regionManager, this.pPlayerManager, args,
+                        new HyperClaimsRegionsCommand(server, this.regionManager, this.pPlayerManager, args,
                                 player);
                     } else {
                         commandSender.sendMessage(

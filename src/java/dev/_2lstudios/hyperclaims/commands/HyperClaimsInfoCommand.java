@@ -6,8 +6,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import dev._2lstudios.worldsentinel.region.RegionManager;
 
-public class ProtectionWandsInfoCommand {
-    public ProtectionWandsInfoCommand(final String[] args, final RegionManager regionManager, final Player player) {
+public class HyperClaimsInfoCommand {
+    public HyperClaimsInfoCommand(final String[] args, final RegionManager regionManager, final Player player) {
         Region region;
         if (args.length > 1) {
             region = regionManager.getRegion(args[1]);

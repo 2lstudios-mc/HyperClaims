@@ -8,8 +8,8 @@ import java.util.Collection;
 import org.bukkit.entity.Player;
 import dev._2lstudios.worldsentinel.region.RegionManager;
 
-public class ProtectionWandsRemoveCommand {
-    public ProtectionWandsRemoveCommand(final RegionManager regionManager, final String[] args, final String label,
+public class HyperClaimsRemoveCommand {
+    public HyperClaimsRemoveCommand(final RegionManager regionManager, final String[] args, final String label,
             final Player player) {
         if (args.length > 1) {
             final Location location = player.getLocation();
