@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.36
-// 
-
 package dev._2lstudios.protectionwands.utils;
 
 import java.util.Iterator;
