@@ -23,7 +23,7 @@ public class HyperClaimsTransferCommand {
                     if (flags.getCollection("owners").contains(player.getName())) {
                         final Player player2 = server.getPlayer(args[1]);
                         if (player2 != null && player2.isOnline()) {
-                            flags.setCollection("owners", Collections.singleton(args[1]));
+                            flags.set("owners", Collections.singleton(args[1]));
                             player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                                     "&aTransferiste el claim a &b" + args[1] + "&a!"));
                         } else {

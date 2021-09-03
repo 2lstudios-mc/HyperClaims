@@ -23,7 +23,7 @@ public class HyperClaimsAddCommand {
                         if (player2 != null && player2.isOnline()) {
                             final Collection<String> members = (Collection<String>) flags.getCollection("members");
                             members.add(args[1]);
-                            flags.setCollection("members", members);
+                            flags.set("members", members);
                             player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                                     "&aAgregaste a &b" + args[1] + "&a como miembro del claim!"));
                         } else {

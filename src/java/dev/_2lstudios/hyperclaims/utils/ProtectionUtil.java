@@ -40,13 +40,13 @@ public class ProtectionUtil {
                     final Location[] positions = getCuboidPoints(position1, position2);
                     final Region region = regionManager.createRandomRegion("PW");
                     final RegionFlags flags = region.getFlags();
-                    flags.setCollection("extra_flags", Collections.singletonList("ProtectionWands"));
+                    flags.set("extra_flags", Collections.singletonList("ProtectionWands"));
                     final Vector position1Vector = positions[0].toVector();
                     final Vector position2Vector = positions[1].toVector();
                     final String worldName = position1.getWorld().getName();
-                    flags.setString("world", worldName);
-                    flags.setVector("position1", position1Vector);
-                    flags.setVector("position2", position2Vector);
+                    flags.set("world", worldName);
+                    flags.set("position1", position1Vector);
+                    flags.set("position2", position2Vector);
                     for (final Region region2 : region.getRegionsInside()) {
                         if (region != region2) {
                             final RegionFlags flags2 = region2.getFlags();
@@ -102,24 +102,24 @@ public class ProtectionUtil {
     }
 
     public static void setDefaultFlags(final RegionFlags flags, final String ownerName) {
-        flags.setBoolean("bow", true);
-        flags.setBoolean("enderpearl", true);
-        flags.setBoolean("explosions", false);
-        flags.setBoolean("fire_spread", false);
-        flags.setBoolean("potions", true);
-        flags.setBoolean("movement", true);
-        flags.setBoolean("pvp", true);
-        flags.setBoolean("pve", true);
-        flags.setBoolean("evp", true);
-        flags.setBoolean("creatures", true);
-        flags.setBoolean("entity_damage", true);
-        flags.setBoolean("player_damage", true);
-        flags.setBoolean("fall_damage", true);
-        flags.setBoolean("growing", true);
-        flags.setBoolean("interacting", false);
-        flags.setBoolean("placing", false);
-        flags.setBoolean("breaking", false);
-        flags.setCollection("owners", Collections.singletonList(ownerName));
+        flags.set("bow", true);
+        flags.set("enderpearl", true);
+        flags.set("explosions", false);
+        flags.set("fire_spread", false);
+        flags.set("potions", true);
+        flags.set("movement", true);
+        flags.set("pvp", true);
+        flags.set("pve", true);
+        flags.set("evp", true);
+        flags.set("creatures", true);
+        flags.set("entity_damage", true);
+        flags.set("player_damage", true);
+        flags.set("fall_damage", true);
+        flags.set("growing", true);
+        flags.set("interacting", false);
+        flags.set("placing", false);
+        flags.set("breaking", false);
+        flags.set("owners", Collections.singletonList(ownerName));
     }
 
     public static Location[] getCuboidPoints(final Location position1, final Location position2) {
