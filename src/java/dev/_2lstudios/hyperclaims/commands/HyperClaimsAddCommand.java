@@ -19,15 +19,15 @@ public class HyperClaimsAddCommand {
                 final RegionFlags flags = region.getFlags();
                 if (flags.getCollection("extra_flags").contains("ProtectionWands")) {
                     if (flags.getCollection("owners").contains(player.getName())) {
-                        final Player player2 = server.getPlayer(args[1]);
-                        if (player2 != null && player2.isOnline()) {
-                            final Collection<String> members = (Collection<String>) flags.getCollection("members");
+                        final Collection<String> members = (Collection<String>) flags.getCollection("members");
+                        if (members.size() < 5 || player.hasPermission("hyperclaims.limit.infinite")) {
                             members.add(args[1]);
                             flags.set("members", members);
                             player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                                    "&aAgregaste a &b" + args[1] + "&a como miembro del claim!"));
+                                "&aAgregaste a &b" + args[1] + "&a como miembro del claim!"));
                         } else {
-                            player.sendMessage(ChatColor.RED + "El jugador especificado no esta en linea!");
+                            player.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                                "&cNo puedes agregar mas miembros! &7(" + members.size() + "/5)\n&eCompra &b&lULTRA&r &epara quitar este limite!"));
                         }
                     } else {
                         player.sendMessage(ChatColor.RED + "No eres owner de ese claim!");
