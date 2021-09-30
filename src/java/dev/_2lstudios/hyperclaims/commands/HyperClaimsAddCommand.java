@@ -21,13 +21,31 @@ public class HyperClaimsAddCommand {
                     if (flags.getCollection("owners").contains(player.getName())) {
                         final Collection<String> members = (Collection<String>) flags.getCollection("members");
                         if (members.size() < 5 || player.hasPermission("hyperclaims.limit.infinite")) {
-                            members.add(args[1]);
-                            flags.set("members", members);
-                            player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                                "&aAgregaste a &b" + args[1] + "&a como miembro del claim!"));
+                            final String member = args[1];
+
+                            if (member.length() >= 3) {
+                                if (member.length() <= 16) {
+                                    if (member.matches("[a-zA-Z0-9_]*")) {
+                                        members.add(member);
+                                        flags.set("members", members);
+                                        player.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                                                "&aAgregaste a &b" + args[1] + "&a como miembro del claim!"));
+                                    } else {
+                                        player.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                                                "&cEl nick contiene caracteres invalidos!"));
+                                    }
+                                } else {
+                                    player.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                                            "&cEl nick debe ser igual o menor a 16 caracteres!"));
+                                }
+                            } else {
+                                player.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                                        "&cEl nick debe ser mayor o igual a 3 caracteres!"));
+                            }
                         } else {
-                            player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                                "&cNo puedes agregar mas miembros! &7(" + members.size() + "/5)\n&eCompra &b&lULTRA&r &epara quitar este limite!"));
+                            player.sendMessage(
+                                    ChatColor.translateAlternateColorCodes('&', "&cNo puedes agregar mas miembros! &7("
+                                            + members.size() + "/5)\n&eCompra &b&lULTRA&r &epara quitar este limite!"));
                         }
                     } else {
                         player.sendMessage(ChatColor.RED + "No eres owner de ese claim!");
